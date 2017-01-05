@@ -17,11 +17,16 @@ namespace AnalyseHealthData
     {
         private AnalyseFileController afc ;
 
+        private String defaultPath = "C:\\dev\\data\\59";
+        private String defaultExportPath = " C:\\dev\\data\\link";
+       
+
 
         public MainForm()
         {
             InitializeComponent();
-            filePathTextBox.Text = "C: \\Users\\Arttioz\\Google ไดรฟ์\\โครงการ Injury Data Center_ สสส\\ลงพื้นที่ สงขลา RTI\\59";
+            filePathTextBox.Text = defaultPath;
+            exportFolderTextBox.Text = defaultExportPath;
         }
 
         private void browseButton_Click(object sender, EventArgs e)
