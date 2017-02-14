@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using AnalyseHealthData.Model;
 using AnalyseHealthData.Controller;
 
 
@@ -16,8 +17,10 @@ namespace AnalyseHealthData
     public partial class MainForm : Form
     {
         private AnalyseFileController afc ;
+        private AnalyseDeathCertController adc;
+        private MergeDeathDataController mdc;
 
-        private String defaultPath = "C:\\dev\\data\\59";
+        private String defaultPath = "C:\\dev\\data\\Saraburi\\HDC Saraburi";
         private String defaultExportPath = " C:\\dev\\data\\link";
        
 
@@ -56,6 +59,15 @@ namespace AnalyseHealthData
             {
                 afc.setFolder(filePathTextBox.Text);
             }
+
+            if(adc == null)
+            {
+                adc = new AnalyseDeathCertController(deathCertFileTextBox.Text, statusTextBox);
+            }
+            else
+            {
+                adc.setFile(deathCertFileTextBox.Text);
+            }
             
         }
 
@@ -79,6 +91,44 @@ namespace AnalyseHealthData
 
                 string[] files = Directory.GetFiles(fbd.SelectedPath);
             }
+        }
+
+        private void deathCertBrowseButton_Click(object sender, EventArgs e)
+        {
+            
+
+            OpenFileDialog fildDialog = new OpenFileDialog();
+            DialogResult result = fildDialog.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = fildDialog.FileName;
+                if (!string.IsNullOrWhiteSpace(file))
+                {
+                    deathCertFileTextBox.Text = file;
+
+                }
+            }
+        }
+
+        private void mergeDeathButton_Click(object sender, EventArgs e)
+        {
+            if (adc != null)
+            {
+                adc.analyseFile(exportFolderTextBox.Text, deathCertFileTextBox.Text);
+            }
+        }
+
+        private void meargeDeathDataButton_Click(object sender, EventArgs e)
+        {
+            List<HealthCareData> deathFromHealthData = afc.joinDeathList;
+            List<DeathCertData> deathFromDeathCertData = adc.deathTrafficlist;
+
+            if (mdc == null)
+            {
+                mdc = new MergeDeathDataController();
+            }
+            mdc.mergeDeathData(deathFromHealthData, deathFromDeathCertData, exportFolderTextBox.Text, statusTextBox);
+
         }
     }
 }

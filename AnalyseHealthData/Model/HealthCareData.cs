@@ -59,15 +59,15 @@ namespace AnalyseHealthData.Model
 
 
         public String discharge_status= ""; // (DISCHSTATUS)
-                                        // 1 =	complete recovery
-                                        // 2 =	improved
-                                        // 3 =	not improved
-                                        // 4 =	normal delivery
-                                        // 5 =	un-delivery
-                                        // 6 =	normal child discharged with mother
-                                        // 7 =  normal child discharged separately
-                                        // 8 =	dead stillbirth
-                                        // 9 =	dead
+                                            // 1 =	complete recovery
+                                            // 2 =	improved
+                                            // 3 =	not improved
+                                            // 4 =	normal delivery
+                                            // 5 =	un-delivery
+                                            // 6 =	normal child discharged with mother
+                                            // 7 =  normal child discharged separately
+                                            // 8 =	dead stillbirth
+                                            // 9 =	dead
 
 
         //OPD-IPD
@@ -105,6 +105,102 @@ namespace AnalyseHealthData.Model
 
         public String deathstatus; // 0 = เป็น 1 = เสียชีวิต
 
+        // Accident
+        public String aetype; // รหัสสาเหตุ 19 สาเหตุ ตามมาตรฐานอ้างอิงตามสำนักระบาดวิทยา
+
+        // aeplace
+        //01 = ที่บ้าน หรืออาคารที่พัก, 
+        //02 = ในสถานที่ทำงาน ยกเว้นโรงงานหรือก่อสร้าง, 
+        //03= ในโรงงานอุตสาหกรรม หรือบริเวณก่อสร้าง,0
+        //04 = ภายในอาคารอื่นๆ, 
+        //05= ในสถานที่สาธารณะ, 
+        //06 = ในชุมชน และไร่นา, 0
+        //7 = บนถนนสายหลัก, 
+        //08 = บนถนนสายรอง, 
+        //09 = ในแม่น้ำ ลำคลอง หนองน้ำ, 
+        //10= ในทะเล, 
+        //11 = ในป่า/ภูเขา, 
+        //98 = อื่นๆ, 99= ไม่ทราบ
+
+        public String aeplace;
+
+        //typein_ae
+        //1 = มารับบริการเอง, 
+        //2 = ได้รับการส่งตัวโดย First responder , 
+        //3 = ได้รับการส่งตัวโดย BLS, 
+        //4 = ได้รับการส่งตัวโดย ILS ,
+        //5 = ได้รับการส่งตัวโดย ALS, 
+        //6 = ได้รับการส่งต่อจากสถานพยาบาลอื่น, 
+        //7 = อื่น ๆ ,9=ไม่ทราบ
+
+        public String typein_ae;
+
+        //traffic
+        //1= ผู้ขับขี่, 2= ผู้โดยสาร, 3= คนเดินเท้า, 8= อื่นๆ, 9= ไม่ทราบ
+        public String traffic;
+
+
+        //vehicle
+        //01= จักรยานและสามล้อถึบ,
+        //02= จักรยานยนต์, 
+        //03= สามล้อเครื่อง, 
+        //04= รถยนต์นั่ง/แท็กซี่, 
+        //05= รถปิกอัพ,  06= รถตู้, 
+        //07= รถโดยสารสองแถว, 
+        //08= รถโดยสารใหญ่ (รถบัส รถเมล์), 
+        //09= รถบรรทุก/รถพ่วง, 10= เรือโดยสาร 
+        //11= เรืออื่นๆ, 12= อากาศยาน, 
+        //98= อื่นๆ 99= ไม่ทราบ 
+
+        public String vehicle;
+        public String alcohol; // 1= ดื่ม, 2= ไม่ดื่ม, 9= ไม่ทราบ
+        public String nacrotic_drug; // 1= ใช้, 2= ไม่ใช้, 9= ไม่ทราบ
+
+        public String belt; // 1= คาด, 2= ไม่คาด, 9= ไม่ทราบ
+
+        public String helmet; // 1= สวม, 2= ไม่สวม, 9= ไม่ทราบ
+
+        public String airway; // 1= มีการดูแลการหายใจก่อนมาถึงเหมาะสม, 2= ไม่มีการดูแลการหายใจก่อนมาถึง ,3= ไม่จำเป็น, 4 = มีการดูแลการหายใจก่อนมาถึงไม่เหมาะสม
+
+        public String stopbleed; // "1= มีการห้ามเลือดก่อนมาถึงเหมาะสม, 2= ไม่มีการห้ามเลือดก่อนมาถึง , 3= ไม่จำเป็น, 4 = มีการห้ามเลือดก่อนมาถึงไม่เหมาะสม"
+
+        public String splint; // 1= มีการใส่ splint/slab ก่อนมาถึงเหมาะสม, 2= ไม่มีการใส่ splint/slabก่อนมาถึง , 3= ไม่จำเป็น, 4= มีการใส่ splint/slab ก่อนมาถึงไม่เหมาะสม
+
+        public String fluid; // 1= มีการให้ IV fluid ก่อนมาถึงเหมาะสม, 2= ไม่มีการให้ IV fluid ก่อนมาถึง , 3= ไม่จำเป็น, 4= มีการให้ IV fluid ก่อนมาถึงเหมาะสม
+
+        public String urgency; // ระดับความเร่งด่วน 5 ระดับ (1= life threatening, 2= emergency, 3= urgent, 4= acute, 5= non acute, 6 = ไม่แน่ใจ) 
+
+        public String coma_eye; // ระดับความรู้สึกตัววัดจากการตอบสนองของตา
+
+        public String coma_speak; // ระดับความรู้สึกตัววัดจากการตอบสนองของการพูด
+
+        public String coma_movement; // ระดับความรู้สึกตัววัดจากการตอบสนองของการเคลื่อนไหว
+
+
+        // Death 
+        //HOSPCODE	PID	HOSPDEATH	AN	SEQ	DDEATH	CDEATH_A	CDEATH_B	CDEATH_C	CDEATH_D	ODISEASE	CDEATH	PREGDEATH	PDEATH
+        //hospdeath	an	seq	ddeath	cdeath_a	cdeath_b	cdeath_c	cdeath_d	odisease	cdeath	pregdeath	pdeath
+
+        public String hospdeath;
+        public String ddeath;
+        public String cdeath_a; // รหัสโรคที่เป็นสาเหตุการตาย_a ตามหนังสือรับรองการตาย รหัส ICD - 10 - TM 6 หลัก(ไม่รวมจุด)
+        public String cdeath_b;
+        public String cdeath_c;
+        public String cdeath_d;
+        public String odisease; // รหัสโรคหรือภาวะอื่นที่เป็นเหตุหนุน
+
+        //cdeath สาเหตุการตาย	"ตามหนังสือรับรองการตาย รหัส ICD - 10 - TM 6 หลัก(ไม่รวมจุด)
+        //หมายเหตุ : ไม่เป็นค่าว่างและอ้างอิงตามรหัส ICD10TM ยกเว้นรหัส S, T, Z เนื่องจากรหัส S, T เป็นการให้รหัสการบาดเจ็บและการเป็นพิษ ส่วนรหัส Z เป็นรหัสการให้บริการด้านสุขภาพ"
+        public String cdeath;
+
+        //pregdeath การตั้งครรภ์และการคลอด	"1 = เสียชีวิตระหว่างตั้งครรภ์, 2= เสียชีวิตระหว่างคลอดหรือหลังคลอดภายใน 42 วัน, 3 = ไม่ตั้งครรภ์ , 4 = ผู้ชาย ,9 = ไม่ทราบ (ตัด 3 4 9 ออก)
+        //หมายเหตุ : เฉพาะหญิงตั้งครรภ์"
+        public String pregdeath;
+
+        //pdeath สถานที่ตาย	1=ในสถานพยาบาล, 2=นอกสถานพยาบาล
+
+        public String pdeath;
+
         public Boolean checkSameDataByDate(String dateCheck)
         {
             // date = 20160901084300;
@@ -130,8 +226,8 @@ namespace AnalyseHealthData.Model
 
             var diff = date_c.Subtract(date_s);
 
-            // 10 days
-            if(diff.Hours < 240)
+            // 30 days
+            if(diff.Hours < 720)
             {
                 return true;
             }
@@ -143,26 +239,48 @@ namespace AnalyseHealthData.Model
         public static String toCVSHeader()
         {
             String cvs = "HOSPCODE,PID,SEQ,HN,DATE_SERV,TIME_SERV,LOCATION,TYPEIN,REFERINHOSP,CAUSEIN,TYPEOUT";
-            cvs += ",CID,PRENAME,NAME,LNAME,SEX,BIRTH,MSTATUS,OCCUPATION_OLD,OCCUPATION_NEW,RELIGION";
+            cvs += ",CID,PRENAME,NAME,LNAME,SEX,BIRTH,AGE,MSTATUS,OCCUPATION_OLD,OCCUPATION_NEW,RELIGION";
+            cvs += ",AETYPE,AEPLACE,TYPEIN_AE,TRAFFIC,VEHICLE,ALCOHOL,NACROTIC_DRUG,BELT,HELMET,AIRWAY,STOPBLEED,SPLINT,FLUID,URGENCY,COMA_EYE,COMA_SPEAK,COMA_MOVEMENT";
             cvs += ",DISCHSTATUS,DEATH,ICD10_PRINCIPLE_DX,ICD10_EXTERNAL_CAUSE";
             cvs += ",ICD10_CO_MORBIDITY_1,ICD10_CO_MORBIDITY_2,ICD10_CO_MORBIDITY_3,ICD10_CO_MORBIDITY_4,ICD10_CO_MORBIDITY_5";
             cvs += ",ICD10_COMPLICATION_1,ICD10_COMPLICATION_2,ICD10_COMPLICATION_3,ICD10_COMPLICATION_4,ICD10_COMPLICATION_5";
             cvs += ",ICD10_OTHER_1,ICD10_OTHER_2,ICD10_OTHER_3,ICD10_OTHER_4,ICD10_OTHER_5";
-
+            cvs += ",HOSPDEATH,DDEATH,CDEATH_A,CDEATH_B,CDEATH_C,CDEATH_D,ODISEASE,CDEATH,PREGDEATH,PDEATH";
             return cvs;
         }
 
         public String toCVS()
         {
             String cvs  = "";
-            cvs += hospcode + "," + pid + "," + seq + "," + hn + "," + date_serv + "," + time_serv + "," + location + "," + type_in + "," + refer_in_hosp + "," + cause_in + "," + typeout;
-            cvs += "," + cid + "," + prename + "," + name + "," + lname + "," + sex + "," + birthdate + "," + m_status + "," + occupation_old + "," + occupation_new + "," + religion;
+            cvs += hospcode + "," + pid + "," + seq + "," + hn + "," + dateServe() + "," + time_serv + "," + location + "," + type_in + "," + refer_in_hosp + "," + cause_in + "," + typeout;
+            cvs += "," + cid + "," + prename + "," + name + "," + lname + "," + sex + "," + birthdate + ","  + age_at_service+ "," + m_status + "," + occupation_old + "," + occupation_new + "," + religion;
+            cvs += "," + aetype + "," + aeplace + "," + typein_ae + "," + traffic + "," + vehicle + "," + alcohol + "," + nacrotic_drug + "," + belt + "," + helmet + "," + airway + "," + stopbleed + "," + splint + "," + fluid + "," + urgency + "," + coma_eye + "," + coma_speak + "," + coma_movement;
+
             cvs += "," + discharge_status + "," + deathstatus + "," + icd10_principle_dx + "," + icd10_external_cause;
             cvs += "," + icd10_co_morbidity_1 + "," + icd10_co_morbidity_2 + "," + icd10_co_morbidity_3 + "," + icd10_co_morbidity_4 + "," + icd10_co_morbidity_5;
             cvs += "," + icd10_complication_1 + "," + icd10_complication_2 + "," + icd10_complication_3 + "," + icd10_complication_4 + "," + icd10_complication_5;
             cvs += "," + icd10_other_1 + "," + icd10_other_2 + "," + icd10_other_3 + "," + icd10_other_4 + "," + icd10_other_5;
+            cvs += "," + hospdeath + "," + ddeath + "," + cdeath_a + "," + cdeath_b + "," + cdeath_c + "," + cdeath_d + "," + odisease + "," + cdeath + "," + pregdeath + "," + pdeath;
+
 
             return cvs;
+        }
+
+        public String dateServe()
+        {
+            String date = date_serv;
+            if (date_serv.Length >= 8)
+            {
+                String year = date_serv.Substring(0, 4);
+                String month = date_serv.Substring(4, 2);
+                String day = date_serv.Substring(6, 2);
+
+
+                date = day + "/" + month + "/" + year;
+            }
+
+            return date;
+
         }
 
         public void setICD10(String diagTypeTxt,String icd10)
